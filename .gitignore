@@ -1,0 +1,22 @@
+# Compiled Python files
+__pycache__/
+*.pyc
+
+# Django-generated files
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+
+# Database
+db.sqlite3
+
+# Static files
+staticfiles/
+
+# Media files
+media/
+
+# Virtual environment
+venv/
