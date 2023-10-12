@@ -1,3 +1,5 @@
+from decouple import config
+
 """
 Django settings for chatbox project.
 
@@ -78,9 +80,20 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    'aws': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'your_database_name',
+        'USER': 'your_database_user',
+        'PASSWORD': 'your_database_password',
+        'HOST': 'your_database_host.amazonaws.com',  # Your RDS endpoint.
+        'PORT': '5432',
     }
 }
 
+# Check if the app is running in a production environment
+if config('DJANGO_PRODUCTION', default='false', cast=bool):
+    DATABASES['default'] = DATABASES['aws']
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

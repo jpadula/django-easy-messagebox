@@ -67,6 +67,8 @@ README.md: This documentation file.
 
 2) pip install -r requirements.txt
 
+	2.1) set in .env file the DJANGO_PRODUCTION variable (false to use sqlite locally or true to use AWS). For AWS, configure in settings.py file the accesses to the database.
+
 3) python manage.py migrate
 
 4) python manage.py createsuperuser (step optional)
